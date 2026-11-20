@@ -2,12 +2,9 @@
 import { useRef } from "react";
 import { Text } from "react-konva";
 import type Konva from "konva";
-
-
 import TextTransformer from "./TextTransformer";
 import type { StaticTextElement } from "../types/element.types";
 import { useEditorStore } from "../stores/editorStore";
-import { calculateTextHeight } from "../utils/textLayout";
 
 interface Props {
   element: StaticTextElement;
@@ -49,6 +46,8 @@ const handleTransformEnd = () => {
 
   const newWidth = Math.max(80, node.width() * node.scaleX());
 
+  const newRotation = node.rotation();
+
   node.scaleX(1);
   node.scaleY(1);
 
@@ -56,12 +55,17 @@ const handleTransformEnd = () => {
     x: node.x(),
     y: node.y(),
     width: newWidth,
+    rotation: newRotation,
   });
 };
+
+
 
   return (
     <>
       <Text
+      letterSpacing={element.letterSpacing}
+      rotation={element.rotation}
         ref={textRef}
         id={element.id}
         x={element.x}

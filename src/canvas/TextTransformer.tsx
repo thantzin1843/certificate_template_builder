@@ -34,7 +34,7 @@ export default function TextTransformer({ nodeRef }: Props) {
         "middle-left",
         "middle-right",
       ]}
-      rotateEnabled={false}
+      rotateEnabled={true}
       keepRatio={false}
       boundBoxFunc={(oldBox, newBox) => {
         if (newBox.width < 80) {

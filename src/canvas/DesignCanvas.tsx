@@ -36,6 +36,7 @@ export default function DesignCanvas() {
           fontStyle: editingElement.fontStyle,
           lineHeight: editingElement.lineHeight,
           wrap: editingElement.wrap,
+          letterSpacing: editingElement.letterSpacing,
         })
       : 0;
 
@@ -73,6 +74,7 @@ export default function DesignCanvas() {
       fontFamily: editingElement.fontFamily,
       fontStyle: editingElement.fontStyle,
       lineHeight: editingElement.lineHeight,
+      letterSpacing: editingElement.letterSpacing,
       wrap: editingElement.wrap,
     });
 
@@ -166,6 +168,10 @@ export default function DesignCanvas() {
               top: editingElement.y,
               width: editingElement.width,
               height: editingHeight,
+              letterSpacing: `${editingElement.letterSpacing}px`,
+
+              transform: `rotate(${editingElement.rotation}deg)`,
+              transformOrigin: "top left",
 
               margin: 0,
               padding: 0,

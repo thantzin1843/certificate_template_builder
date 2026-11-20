@@ -38,6 +38,8 @@ function createTextElement(
     align: "center",
     lineHeight: 1.2,
     wrap: "word",
+    letterSpacing: 0,
+    rotation: 0
   };
 }
 
@@ -104,7 +106,7 @@ export const useEditorStore = create<EditorState>((set, get) => ({
     });
   },
 
-  
+
 updateElement: (id, updates) => {
   set((state) => ({
     elements: state.elements.map((element) => {
@@ -126,6 +128,7 @@ updateElement: (id, updates) => {
           fontStyle: updatedElement.fontStyle,
           lineHeight: updatedElement.lineHeight,
           wrap: updatedElement.wrap,
+          letterSpacing: updatedElement.letterSpacing,
         });
       }
 

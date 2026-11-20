@@ -237,6 +237,129 @@ export default function TextProperties() {
         </select>
       </div>
 
+
+{/* Letter Spacing */}
+<div className="space-y-2">
+  <label className="text-sm font-medium text-gray-700">
+    Letter Spacing
+  </label>
+
+  <div className="flex items-center gap-2">
+    <input
+      type="range"
+      min={-2}
+      max={20}
+      step={0.5}
+      value={element.letterSpacing}
+      onChange={(e) =>
+        updateElement(element.id, {
+          letterSpacing: Number(e.target.value),
+        })
+      }
+      className="flex-1"
+    />
+
+    <input
+      type="number"
+      min={-2}
+      max={20}
+      step={0.5}
+      value={element.letterSpacing}
+      onChange={(e) =>
+        updateElement(element.id, {
+          letterSpacing: Number(e.target.value),
+        })
+      }
+      className="w-16 rounded border border-gray-300 px-2 py-1 text-sm"
+    />
+  </div>
+</div>
+
+{/* Line Spacing */}
+<div className="space-y-2">
+  <label className="text-sm font-medium text-gray-700">
+    Line Spacing
+  </label>
+
+  <div className="flex items-center gap-2">
+    <input
+      type="range"
+      min={0.8}
+      max={3}
+      step={0.1}
+      value={element.lineHeight}
+      onChange={(e) =>
+        updateElement(element.id, {
+          lineHeight: Number(e.target.value),
+        })
+      }
+      className="flex-1"
+    />
+
+    <input
+      type="number"
+      min={0.8}
+      max={3}
+      step={0.1}
+      value={element.lineHeight}
+      onChange={(e) =>
+        updateElement(element.id, {
+          lineHeight: Number(e.target.value),
+        })
+      }
+      className="w-16 rounded border border-gray-300 px-2 py-1 text-sm"
+    />
+  </div>
+</div>
+
+
+{/* Rotation */}
+<div className="space-y-2">
+  <label className="text-sm font-medium text-gray-700">
+    Rotation
+  </label>
+
+  <div className="flex items-center gap-2">
+    <input
+      type="range"
+      min={-180}
+      max={180}
+      step={1}
+      value={element.rotation}
+      onChange={(e) =>
+        updateElement(element.id, {
+          rotation: Number(e.target.value),
+        })
+      }
+      className="flex-1"
+    />
+
+    <input
+      type="number"
+      min={-360}
+      max={360}
+      step={1}
+      value={element.rotation}
+      onChange={(e) =>
+        updateElement(element.id, {
+          rotation: Number(e.target.value),
+        })
+      }
+      className="w-16 rounded border border-gray-300 px-2 py-1 text-sm"
+    />
+  </div>
+
+  <button
+    type="button"
+    onClick={() =>
+      updateElement(element.id, { rotation: 0 })
+    }
+    className="text-xs text-blue-600 hover:underline"
+  >
+    Reset rotation
+  </button>
+</div>
+
     </div>
   );
 }

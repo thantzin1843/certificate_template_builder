@@ -8,6 +8,7 @@ interface TextLayoutOptions {
   fontFamily: string;
   fontStyle: StaticTextElement["fontStyle"];
   lineHeight: number;
+  letterSpacing: number;
   wrap: StaticTextElement["wrap"];
 }
 
@@ -19,6 +20,7 @@ export function calculateTextHeight({
   fontStyle,
   lineHeight,
   wrap,
+  letterSpacing,
 }: TextLayoutOptions): number {
   if (typeof window === "undefined") {
     return fontSize * lineHeight;
@@ -44,8 +46,16 @@ export function calculateTextHeight({
   const availableWidth = Math.max(1, width);
   const lineTexts: string[] = [];
 
-  const measure = (value: string) =>
-    context.measureText(value).width;
+  const measure = (value: string) => {
+  if (!value) return 0;
+
+  const characterCount = [...value].length;
+
+  return (
+    context.measureText(value).width +
+    Math.max(0, characterCount - 1) * letterSpacing
+  );
+};
 
   const addWordWrappedParagraph = (paragraph: string) => {
     if (!paragraph) {

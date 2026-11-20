@@ -29,6 +29,8 @@ export interface StaticTextElement {
   align: "left" | "center" | "right";
   lineHeight: number;
   wrap: "word" | "char";
+  letterSpacing: number;
+  rotation: number;
 }
   
 export type CanvasElement = StaticTextElement;
